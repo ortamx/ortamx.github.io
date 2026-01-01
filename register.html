@@ -1,0 +1,60 @@
+Html
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Üye Ol | Ortam</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    body {
+      margin: 0; background: #0F0F14; color: #fff;
+      display: flex; align-items: center; justify-content: center; height: 100vh;
+    }
+    .card {
+      background: #171722; padding: 32px; border-radius: 12px;
+      width: 100%; max-width: 380px;
+    }
+    h1 { margin-top: 0; color: #7B5CFF; }
+    p { color: #B5B5C5; font-size: 14px; }
+    input {
+      width: 100%; margin-top: 14px; padding: 12px;
+      border-radius: 8px; border: 1px solid #4B3FA3;
+      background: #0F0F14; color: #fff;
+    }
+    button {
+      width: 100%; margin-top: 20px; padding: 12px;
+      background: #7B5CFF; border: none; border-radius: 8px;
+      color: #fff; font-size: 15px; cursor: pointer;
+    }
+    .link {
+      margin-top: 16px; text-align: center; font-size: 13px;
+    }
+    .link a { color: #7B5CFF; text-decoration: none; }
+    .kvkk {
+      font-size: 11px; color: #7A7A8C; margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <h1>Üye Ol</h1>
+  <p>Sohbete katılmak için hesap oluştur</p>
+
+  <input type="text" placeholder="Kullanıcı adı">
+  <input type="tel" placeholder="GSM numarası">
+  <input type="password" placeholder="Şifre">
+
+  <div class="kvkk">KVKK kapsamında bilgileriniz korunur.</div>
+
+  <button>Hesap Oluştur</button>
+
+  <div class="link">
+    Zaten üye misin? <a href="login.html">Giriş yap</a>
+  </div>
+</div>
+
+</body>
+</html>
