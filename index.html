@@ -4,23 +4,12 @@
   <meta charset="UTF-8">
   <title>Ortam</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- FONT -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
+    * { box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    body { margin: 0; background: #0F0F14; color: #fff; }
 
-    body {
-      margin: 0;
-      background: #0F0F14;
-      color: #fff;
-    }
-
-    /* ÜST BAR */
     header {
       height: 64px;
       display: flex;
@@ -30,17 +19,14 @@
       border-bottom: 1px solid #1f1f2e;
     }
 
-    .logo {
-      color: #7B5CFF;
-      font-size: 20px;
-      font-weight: 600;
-    }
+    .logo { color: #7B5CFF; font-size: 20px; font-weight: 600; }
+
+    .nav a { margin-left: 12px; text-decoration: none; }
 
     .nav button {
       background: none;
       border: none;
       color: #7B5CFF;
-      margin-left: 16px;
       font-size: 14px;
       cursor: pointer;
     }
@@ -52,7 +38,6 @@
       border-radius: 8px;
     }
 
-    /* ANA ALAN */
     .container {
       max-width: 1200px;
       margin: 32px auto;
@@ -62,7 +47,6 @@
       gap: 24px;
     }
 
-    /* SOHBET */
     .chat-box {
       background: #171722;
       border-radius: 12px;
@@ -72,40 +56,15 @@
       height: 65vh;
     }
 
-    .messages {
-      flex: 1;
-      overflow-y: auto;
-    }
+    .messages { flex: 1; overflow-y: auto; }
 
-    .message {
-      margin-bottom: 14px;
-    }
-
-    .username {
-      color: #7B5CFF;
-      font-weight: 500;
-      font-size: 14px;
-    }
-
-    .time {
-      font-size: 11px;
-      color: #7A7A8C;
-      margin-left: 6px;
-    }
-
-    .text {
-      font-size: 14px;
-      margin-top: 4px;
-    }
-
-    /* INPUT */
-    .input-box {
-      margin-top: 12px;
-      display: flex;
-    }
+    .message { margin-bottom: 14px; }
+    .username { color: #7B5CFF; font-weight: 500; font-size: 14px; }
+    .time { font-size: 11px; color: #7A7A8C; margin-left: 6px; }
+    .text { font-size: 14px; margin-top: 4px; }
 
     .input-box input {
-      flex: 1;
+      width: 100%;
       padding: 12px;
       border-radius: 8px;
       border: 1px solid #4B3FA3;
@@ -113,11 +72,6 @@
       color: #aaa;
     }
 
-    .input-box input:disabled {
-      cursor: not-allowed;
-    }
-
-    /* CTA PANEL */
     .cta {
       background: #171722;
       border-radius: 12px;
@@ -125,18 +79,10 @@
       height: fit-content;
     }
 
-    .cta h2 {
-      margin-top: 0;
-      font-size: 18px;
-    }
+    .cta h2 { margin-top: 0; }
+    .cta p { color: #B5B5C5; font-size: 14px; }
 
-    .cta p {
-      font-size: 14px;
-      color: #B5B5C5;
-      line-height: 1.4;
-    }
-
-    .cta button {
+    .cta a button {
       width: 100%;
       margin-top: 16px;
       padding: 12px;
@@ -148,11 +94,8 @@
       cursor: pointer;
     }
 
-    /* MOBİL */
     @media (max-width: 768px) {
-      .container {
-        grid-template-columns: 1fr;
-      }
+      .container { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -161,32 +104,29 @@
 <header>
   <div class="logo">Ortam</div>
   <div class="nav">
-    <button>Giriş Yap</button>
-    <button class="primary">Üye Ol</button>
+    <a href="login.html"><button type="button">Giriş Yap</button></a>
+    <a href="register.html"><button type="button" class="primary">Üye Ol</button></a>
   </div>
 </header>
 
 <div class="container">
 
-  <!-- SOHBET -->
   <div class="chat-box">
     <div class="messages">
       <div class="message">
         <span class="username">Ahmet</span>
         <span class="time">22:41</span>
-        <div class="text">Gece bayağı sakin ama güzel ortam</div>
+        <div class="text">Gece baya sakin ama ortam güzel</div>
       </div>
-
       <div class="message">
         <span class="username">Zeynep</span>
         <span class="time">22:43</span>
-        <div class="text">Aynen ya, Discord gidince boşluk oluştu</div>
+        <div class="text">Discord gidince burası iyi oldu</div>
       </div>
-
       <div class="message">
         <span class="username">Can</span>
         <span class="time">22:44</span>
-        <div class="text">Yeni geldim, selam millet</div>
+        <div class="text">Yeni geldim selam 👋</div>
       </div>
     </div>
 
@@ -195,14 +135,12 @@
     </div>
   </div>
 
-  <!-- CTA -->
   <div class="cta">
     <h2>Ortam’a hoş geldin</h2>
-    <p>
-      Türkiye için sade, hızlı ve gerçek sohbet ortamı.<br>
-      Yazmak için ücretsiz üye ol.
-    </p>
-    <button>Ücretsiz Üye Ol</button>
+    <p>Türkiye için sade ve gerçek sohbet ortamı.</p>
+    <a href="register.html">
+      <button type="button">Ücretsiz Üye Ol</button>
+    </a>
   </div>
 
 </div>
