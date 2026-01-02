@@ -2,52 +2,40 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>Giriş Yap | Ortam</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; font-family: 'Inter', sans-serif; }
-    body {
-      margin: 0; background: #0F0F14; color: #fff;
-      display: flex; align-items: center; justify-content: center; height: 100vh;
-    }
-    .card {
-      background: #171722; padding: 32px; border-radius: 12px;
-      width: 100%; max-width: 380px;
-    }
-    h1 { margin-top: 0; color: #7B5CFF; }
-    p { color: #B5B5C5; font-size: 14px; }
-    input {
-      width: 100%; margin-top: 14px; padding: 12px;
-      border-radius: 8px; border: 1px solid #4B3FA3;
-      background: #0F0F14; color: #fff;
-    }
-    button {
-      width: 100%; margin-top: 20px; padding: 12px;
-      background: #7B5CFF; border: none; border-radius: 8px;
-      color: #fff; font-size: 15px; cursor: pointer;
-    }
-    .link { margin-top: 16px; text-align: center; font-size: 13px; }
-    .link a { color: #7B5CFF; text-decoration: none; }
-  </style>
+  <title>Giriş Yap</title>
 </head>
 <body>
 
-<div class="card">
-  <h1>Giriş Yap</h1>
-  <p>Ortam’a geri hoş geldin</p>
+<h2>Giriş Yap</h2>
 
-  <input type="text" placeholder="Kullanıcı adı veya GSM">
-  <input type="password" placeholder="Şifre">
+<input id="email" placeholder="Email"><br><br>
+<input id="password" type="password" placeholder="Şifre"><br><br>
+<button id="loginBtn">Giriş</button>
 
-  <button type="button" onclick="window.location.href='index.html'">
-    Giriş Yap
-  </button>
+<script type="module">
+  import { auth, onAuthStateChanged } from "./firebase.js";
+  import { signInWithEmailAndPassword } 
+  from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-  <div class="link">
-    Hesabın yok mu? <a href="register.html">Üye ol</a>
-  </div>
-</div>
+  // Zaten giriş varsa login'de kalmasın
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      window.location.href = "index.html";
+    }
+  });
+
+  document.getElementById("loginBtn").onclick = async () => {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      window.location.href = "index.html";
+    } catch (err) {
+      alert(err.message);
+    }
+  };
+</script>
 
 </body>
 </html>
