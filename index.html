@@ -2,148 +2,45 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>Ortam</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <style>
-    * { box-sizing: border-box; font-family: 'Inter', sans-serif; }
-    body { margin: 0; background: #0F0F14; color: #fff; }
-
-    header {
-      height: 64px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 24px;
-      border-bottom: 1px solid #1f1f2e;
-    }
-
-    .logo { color: #7B5CFF; font-size: 20px; font-weight: 600; }
-
-    .nav a { margin-left: 12px; text-decoration: none; }
-
-    .nav button {
-      background: none;
-      border: none;
-      color: #7B5CFF;
-      font-size: 14px;
-      cursor: pointer;
-    }
-
-    .nav .primary {
-      background: #7B5CFF;
-      color: #fff;
-      padding: 8px 14px;
-      border-radius: 8px;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 32px auto;
-      padding: 0 16px;
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 24px;
-    }
-
-    .chat-box {
-      background: #171722;
-      border-radius: 12px;
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      height: 65vh;
-    }
-
-    .messages { flex: 1; overflow-y: auto; }
-
-    .message { margin-bottom: 14px; }
-    .username { color: #7B5CFF; font-weight: 500; font-size: 14px; }
-    .time { font-size: 11px; color: #7A7A8C; margin-left: 6px; }
-    .text { font-size: 14px; margin-top: 4px; }
-
-    .input-box input {
-      width: 100%;
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #4B3FA3;
-      background: #0F0F14;
-      color: #aaa;
-    }
-
-    .cta {
-      background: #171722;
-      border-radius: 12px;
-      padding: 20px;
-      height: fit-content;
-    }
-
-    .cta h2 { margin-top: 0; }
-    .cta p { color: #B5B5C5; font-size: 14px; }
-
-    .cta a button {
-      width: 100%;
-      margin-top: 16px;
-      padding: 12px;
-      background: #7B5CFF;
-      border: none;
-      border-radius: 8px;
-      color: #fff;
-      font-size: 15px;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      .container { grid-template-columns: 1fr; }
-    }
-  </style>
+  <title>OrtamX</title>
 </head>
 <body>
 
-<header>
-  <div class="logo">Ortam</div>
-  <div class="nav">
-    <a href="login.html"><button type="button">Giriş Yap</button></a>
-    <a href="register.html"><button type="button" class="primary">Üye Ol</button></a>
-  </div>
-</header>
+<h1>OrtamX Ana Sayfa</h1>
+<p>Giriş başarılı, içeridesin.</p>
 
-<div class="container">
+<button id="logoutBtn">Çıkış Yap</button>
 
-  <div class="chat-box">
-    <div class="messages">
-      <div class="message">
-        <span class="username">Ahmet</span>
-        <span class="time">22:41</span>
-        <div class="text">Gece baya sakin ama ortam güzel</div>
-      </div>
-      <div class="message">
-        <span class="username">Zeynep</span>
-        <span class="time">22:43</span>
-        <div class="text">Discord gidince burası iyi oldu</div>
-      </div>
-      <div class="message">
-        <span class="username">Can</span>
-        <span class="time">22:44</span>
-        <div class="text">Yeni geldim selam 👋</div>
-      </div>
-    </div>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getAuth, onAuthStateChanged, signOut } 
+  from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-    <div class="input-box">
-      <input type="text" placeholder="Yazmak için üye ol 🔒" disabled>
-    </div>
-  </div>
+  const firebaseConfig = {
+    apiKey: "AIzaSyBXEF4jZppIh9QBZu4milhVB87np4dCvbE",
+    authDomain: "ortamx-2d6a2.firebaseapp.com",
+    projectId: "ortamx-2d6a2",
+    storageBucket: "ortamx-2d6a2.firebasestorage.app",
+    messagingSenderId: "264844984038",
+    appId: "1:264844984038:web:176ac4f610f840d1168527"
+  };
 
-  <div class="cta">
-    <h2>Ortam’a hoş geldin</h2>
-    <p>Türkiye için sade ve gerçek sohbet ortamı.</p>
-    <a href="register.html">
-      <button type="button">Ücretsiz Üye Ol</button>
-    </a>
-  </div>
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
 
-</div>
+  // Giriş kontrolü
+  onAuthStateChanged(auth, (user) => {
+    if (!user) {
+      window.location.href = "login.html";
+    }
+  });
+
+  // Logout
+  document.getElementById("logoutBtn").onclick = async () => {
+    await signOut(auth);
+    window.location.href = "login.html";
+  };
+</script>
 
 </body>
 </html>
