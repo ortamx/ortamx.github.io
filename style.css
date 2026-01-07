@@ -1,60 +1,9 @@
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #0f0a1f;
-  color: #fff;
-}
-
-header {
-  background: linear-gradient(90deg, #6a00ff, #8e2de2);
-  padding: 15px 25px;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.container {
-  padding: 30px;
-}
-
-.card {
-  background: #1a1333;
-  border-radius: 12px;
-  padding: 20px;
-  max-width: 400px;
-  margin: 40px auto;
-  box-shadow: 0 10px 30px rgba(0,0,0,.4);
-}
-
-input {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-}
-
-button {
-  width: 100%;
-  padding: 12px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  background: #6a00ff;
-  color: #fff;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-button:hover {
-  opacity: 0.9;
-}
-
-a {
-  color: #b388ff;
-  text-decoration: none;
-}
-
-.center {
-  text-align: center;
-}
+body { background: #121212; color: white; font-family: 'Inter', sans-serif; margin: 0; }
+.app-container { display: flex; flex-direction: column; height: 100vh; }
+header { background: #1f1f1f; padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; }
+#messages { flex: 1; padding: 20px; overflow-y: auto; background: #181818; }
+.footer { padding: 20px; background: #1f1f1f; display: flex; gap: 10px; }
+input { flex: 1; padding: 12px; border-radius: 8px; border: none; background: #2a2a2a; color: white; }
+button { padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer; font-weight: bold; }
+#send-btn { background: #5865F2; color: white; }
+#join-btn { background: #43b581; color: white; }
